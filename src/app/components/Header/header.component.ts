@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  counter: number = 1
 }

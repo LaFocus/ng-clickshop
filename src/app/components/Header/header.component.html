@@ -1,1 +1,39 @@
-header
+<nav class="header">
+  <div class="header__inner container">
+    <a class="header__inner-logo" to="/">
+      <img src="../../../assets/images/logo.svg" alt="">
+    </a>
+    <ul class="header__inner-list">
+      <li><a to="/" class="header__inner-list-item">Home</a></li>
+      <li><a to="/like" class="header__inner-list-item">Selected
+          Products</a></li>
+      <li><a to="/payment" class="header__inner-list-item">Payment and
+          delivery</a></li>
+      <li class="header__inner-list-item">Contacts</li>
+    </ul>
+    <div class="burgerMenu">
+      <div class="burgerMenu__inner">
+        <ul class="burgerMenu__inner-list">
+          <li class="burgerMenu__inner-list-close">
+            <img src="../../../assets/images/close.svg" alt="">
+          </li>
+          <li><a to="/" class="burgerMenu__inner-list-item">Home</a></li>
+          <li><a to="/like" class="burgerMenu__inner-list-item">Selected
+              Products</a></li>
+          <li><a to="/payment" class="burgerMenu__inner-list-item">Payment and
+              delivery</a></li>
+          <li class="burgerMenu__inner-list-item">Contacts</li>
+        </ul>
+      </div>
+    </div>
+    <div class="header__inner__right">
+      <a to="/productpage/shoppingcart" class="header__inner__right-shop">
+        <div class="header__inner__right-shop-counter">{{ counter }}</div>
+        <img src="../../../assets/images/cart.svg" alt="" class="header__inner__right-cart">
+      </a>
+      <div class="burger">
+        <img src="../../../assets/images/burger.png" alt="">
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,7 +1,33 @@
+@import url(./assets/styles/main.scss);
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    font-family: sans-serif;
+}
+
+button {
+    transition: 150ms;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.5;
+}
+
+.container{
+    max-width: 1680px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+:root{
+    --text: #121211;
+    --white: white;
+    --price: #030A8C;
 }
