@@ -5,7 +5,7 @@ import { MainContentPaginationComponent } from './main-content-pagination/main-c
 import { MainContentMoreComponent } from './main-content-more/main-content-more.component';
 import { ProductsService } from '../../../services/products/products.service';
 import { NgForOf } from '@angular/common';
-import { Observable, tap } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'main-content',
@@ -16,6 +16,7 @@ import { Observable, tap } from 'rxjs';
     MainContentPaginationComponent,
     MainContentMoreComponent,
     NgForOf,
+    CommonModule
   ],
   templateUrl: './main-content.component.html',
   styleUrls: ['./main-content.component.scss'],
