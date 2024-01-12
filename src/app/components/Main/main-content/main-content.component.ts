@@ -34,11 +34,6 @@ export class MainContentComponent {
   getProducts() {
     this.productsService
       .getProducts()
-      .pipe(
-        tap((item) => {
-          console.log(item)
-        })
-      )
       .subscribe((products) => (this.products = products));
   }
 

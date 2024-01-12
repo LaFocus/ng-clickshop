@@ -1,4 +1,6 @@
 .productCard {
+  margin-top: 20px;
+
     &-route {
       color: #121211;
       font-family: "Questrial";
@@ -13,6 +15,7 @@
     &__inner {
       display: flex;
       align-items: flex-start;
+      margin-top: 50px;
   
       @media screen and (max-width: 768px) {
         flex-direction: column;

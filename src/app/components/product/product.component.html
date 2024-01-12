@@ -1,4 +1,4 @@
-<div class="productCard" v-if="info">
+<div class="productCard">
   <div class="routes container">
     <a to="/">
       <span>Home/</span>
@@ -7,31 +7,31 @@
   </div>
   <div class="productCard__inner container">
     <div class="productCard__inner__images">
-      <div class="productCard__inner__images__thumbnails" ref="thumbnails">
-        <div class="productCard__inner__images__thumbnails-item">
-          <img :src="item" alt="" class="productCard__inner__images__thumbnails-item-img">
+      <div class="productCard__inner__images__thumbnails">
+        <div class="productCard__inner__images__thumbnails-item" *ngFor="let item of info.images" :key="i">
+          <img [src]="item" alt="" class="productCard__inner__images__thumbnails-item-img">
         </div>
       </div>
       <div class="productCard__inner__images-mainImage">
-        <img :src="info.images[currImage]" alt="">
+        <img [src]="info.images[0]" alt="">
       </div>
     </div>
     <div class="productCard__inner__info">
       <h3 class="productCard__inner__info-title">
-        <!-- {{ info.title }} -->
+        {{ info.title}}
       </h3>
       <h4 class="productCard__inner__info-price">
-        <!-- ${{ info.price }} -->
+        ${{ info.price }}
       </h4>
       <div class="productCard__inner__info-description">
         <span>Product description</span>
-        <!-- <p>{{ info.description }}</p> -->
+        <p>{{ info.description }}</p>
       </div>
 
       <div class="productCard__inner__info__btns">
         <div class="productCard__inner__info__btns__amount">
           <button class="productCard__inner__info__btns__amount-btn">-</button>
-          <!-- <span>{{ getAmount() }}</span> -->
+          <span>{{ 0 }}</span>
           <button class="productCard__inner__info__btns__amount-btn">+</button>
         </div>
         <button class="productCard__inner__info__btns-order">Buy
@@ -53,6 +53,7 @@
     <div class="productCard__recommendations__goods" v-if="getIndexStore">
       <swiper-container :slides-per-view="1">
         <swiper-slide class="productCard__recommendations__goods__slide">
+          <!-- <main-content-item ></main-content-item> -->
           <!-- <MainGoodsItem v-for="(item, i) in getIndexStore.slice(23, 27)" :key="i" :item="item" /> -->
         </swiper-slide>
         <swiper-slide class="productCard__recommendations__goods__slide">
