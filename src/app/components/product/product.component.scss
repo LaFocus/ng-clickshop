@@ -1,0 +1,263 @@
+.productCard {
+    &-route {
+      color: #121211;
+      font-family: "Questrial";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-top: 60px;
+      margin-bottom: 76px;
+    }
+  
+    &__inner {
+      display: flex;
+      align-items: flex-start;
+  
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      &__images {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 74px;
+        margin-right: 74px;
+  
+        @media screen and (max-width: 768px) {
+          flex-direction: column;
+          margin-bottom: 50px;
+          margin-right: 0;
+        }
+  
+  
+        &__thumbnails {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+  
+          @media screen and (max-width: 768px) {
+            flex-direction: row;
+            order: 1;
+          }
+  
+  
+          &-item {
+            padding: 10px;
+  
+            & img {
+              object-fit: contain;
+              max-width: 100px;
+              max-height: 100px;
+              width: 100%;
+              height: 100%;
+            }
+            
+  
+  
+          }
+  
+          &-item.active {
+            border: 2px solid #030a8c;
+  
+          }
+  
+          
+        }
+  
+        &-mainImage {
+          & img {
+            min-width: 440px;
+            max-width: 440px;
+            max-height: 440px;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+  
+            @media screen and (max-width: 1030px) {
+              min-width: 0;
+            }
+          }
+        }
+      }
+  
+      &__info {
+  
+        @media screen and (max-width: 1030px) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+  
+        &-title {
+          color: #121211;
+          font-size: 25px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 150%;
+        }
+  
+        &-price {
+          color: #030a8c;
+          // font-family: Questrial;
+          font-size: 25px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          margin: 40px 0 60px 0;
+        }
+  
+        &-description span {
+          color: #030a8c;
+          // font-family: Questrial;
+          font-size: 25px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+  
+          @media screen and (max-width: 768px) {
+            display: flex;
+            justify-content: center;
+          }
+  
+        }
+  
+        &-description p {
+          color: #3d3d3d;
+          // font-family: Questrial;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          max-width: 810px;
+          margin: 30px 0 133px 0;
+  
+          @media screen and (max-width: 1532px) {
+            max-width: 600px;
+          }
+  
+          @media screen and (max-width: 1300px) {
+            max-width: 300px;
+          }
+  
+          @media screen and (max-width: 768px) {
+            text-align: center;
+          }
+        }
+  
+        &__btns {
+          display: flex;
+          align-items: center;
+  
+          @media screen and (max-width: 1200px) {
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+          }
+  
+          &__amount {
+            display: flex;
+            width: 119px;
+            height: 38px;
+            justify-content: space-between;
+            align-items: center;
+  
+            &-btn {
+              width: 33px;
+              background: #eaeaea;
+              border: none;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100%;
+              outline: none;
+            }
+  
+            & span {
+              color: #3d3d3d;
+              // font-family: Kanit;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 10px;
+            }
+          }
+  
+          &-order {
+            background: #030a8c;
+            border: none;
+            outline: none;
+            color: #fff;
+            // font-family: Bruno Ace;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            padding: 14px 45px;
+            margin: 0 50px 0 75px;
+            transition: 150ms;
+  
+            @media screen and (max-width: 1200px) {
+              margin: 0 0 0 0;
+  
+            }
+          }
+  
+          &-order:hover {
+            opacity: 0.5;
+          }
+  
+          &-like {
+            border: none;
+            background: none;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  
+    &__recommendations {
+      display: flex;
+      flex-direction: column;
+  
+      &-title {
+        margin: 100px 0 160px 0;
+        color: #121211;
+        font-family: Questrial;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 1.25px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+  
+      &__goods {
+        display: flex;
+        margin-bottom: 150px;
+        flex-wrap: wrap;
+        justify-content: center;
+  
+        &__slide {
+          // width: max-content !important;
+          display: flex !important;
+          gap: 25px !important;
+          flex-wrap: wrap !important;
+          justify-content: center !important;
+  
+          @media screen and (max-width: 1666px) {}
+        }
+      }
+    }
+  }
+  
+  .swiper-pagination {
+    text-align: left !important;
+    // transform: translateY(42px) !important;
+  }

@@ -61,7 +61,7 @@
           transform: translateX(0);
         }
   
-        &-item.router-link-active::after {
+        &-item.active::after {
           content: "";
           width: 100%;
           height: 2px;

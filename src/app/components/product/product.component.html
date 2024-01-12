@@ -1,0 +1,64 @@
+<div class="productCard" v-if="info">
+  <div class="routes container">
+    <a to="/">
+      <span>Home/</span>
+    </a>
+    Product Card
+  </div>
+  <div class="productCard__inner container">
+    <div class="productCard__inner__images">
+      <div class="productCard__inner__images__thumbnails" ref="thumbnails">
+        <div class="productCard__inner__images__thumbnails-item">
+          <img :src="item" alt="" class="productCard__inner__images__thumbnails-item-img">
+        </div>
+      </div>
+      <div class="productCard__inner__images-mainImage">
+        <img :src="info.images[currImage]" alt="">
+      </div>
+    </div>
+    <div class="productCard__inner__info">
+      <h3 class="productCard__inner__info-title">
+        <!-- {{ info.title }} -->
+      </h3>
+      <h4 class="productCard__inner__info-price">
+        <!-- ${{ info.price }} -->
+      </h4>
+      <div class="productCard__inner__info-description">
+        <span>Product description</span>
+        <!-- <p>{{ info.description }}</p> -->
+      </div>
+
+      <div class="productCard__inner__info__btns">
+        <div class="productCard__inner__info__btns__amount">
+          <button class="productCard__inner__info__btns__amount-btn">-</button>
+          <!-- <span>{{ getAmount() }}</span> -->
+          <button class="productCard__inner__info__btns__amount-btn">+</button>
+        </div>
+        <button class="productCard__inner__info__btns-order">Buy
+          NOW</button>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" :fill="fillValue"
+          class="productCard__inner__info__btns-like">
+          <path
+            d="M12.0069 19L2.67077 10.709C-2.40323 5.73443 5.05554 -3.81677 12.0069 3.91042C18.9583 -3.81677 26.3832 5.7676 21.3431 10.709L12.0069 19Z"
+            stroke="#030A8C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ref="likeFill" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="productCard__recommendations container" v-if="getIndexStore">
+    <div class="productCard__recommendations-title">
+      <h3>You may be interested in</h3>
+    </div>
+    <div class="productCard__recommendations__goods" v-if="getIndexStore">
+      <swiper-container :slides-per-view="1">
+        <swiper-slide class="productCard__recommendations__goods__slide">
+          <!-- <MainGoodsItem v-for="(item, i) in getIndexStore.slice(23, 27)" :key="i" :item="item" /> -->
+        </swiper-slide>
+        <swiper-slide class="productCard__recommendations__goods__slide">
+          <!-- <MainGoodsItem v-for="(item, i) in getIndexStore.slice(19, 23)" :key="i" :item="item" /> -->
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </div>
+</div>

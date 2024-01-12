@@ -1,0 +1,112 @@
+.mainGoodsItem {
+  margin-bottom: 106px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    position: relative;
+    justify-content: center;
+
+    @media screen and (max-width: 1333px) {
+      align-items: center;
+    }
+
+    &-img {
+      width: 390px;
+      height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 150ms;
+      position: relative;
+      margin-bottom: 30px;
+      border: none;
+
+      @media screen and (max-width: 420px) {
+        width: 250px;
+        height: 250px;
+      }
+
+      & img {
+        width: 288px;
+        height: 288px;
+        object-fit: contain;
+      }
+
+      &-phone {
+        width: 288px;
+        height: 288px;
+        object-fit: contain;
+        margin-bottom: 8px;
+        border: none;
+      }
+
+      &-cart {
+        position: absolute;
+        top: 40px;
+        left: 15px;
+        z-index: 100;
+        opacity: 0;
+        transition: 150ms;
+        cursor: pointer;
+      }
+
+      &-like {
+        position: absolute;
+        top: 105px;
+        left: 15px;
+        z-index: 100;
+        opacity: 0;
+        transition: 150ms;
+        cursor: pointer;
+      }
+    }
+
+    &-img:hover {
+      // background: rgba(18, 18, 17, 0.05);
+      // backdrop-filter: blur(1px);
+      border: none;
+      background: rgba(18, 18, 17, 0.05);
+    }
+
+    &-img:hover .mainGoodsItem__inner-img-cart {
+      opacity: 1;
+    }
+
+    &-img:hover .mainGoodsItem__inner-img-like {
+      opacity: 1;
+    }
+
+    &-name {
+      color: #121211;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      max-width: 250px;
+      width: 100%;
+    }
+
+    &-price {
+      color: var(--price);
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    &-discount {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 110px;
+      height: 35px;
+      background: #030A8C;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
