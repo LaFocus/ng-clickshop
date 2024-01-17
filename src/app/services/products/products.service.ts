@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  private url = 'https://dummyjson.com/products/';
+  private url = 'https://dummyjson.com/products/?limit=100';
 
   getProducts() {
     return this.http.get(this.url)

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { MainContentFilterComponent } from './main-content-filter/main-content-filter.component';
 import { MainContentItemComponent } from './main-content-item/main-content-item.component';
-import { MainContentPaginationComponent } from './main-content-pagination/main-content-pagination.component';
 import { MainContentMoreComponent } from './main-content-more/main-content-more.component';
 import { ProductsService } from '../../../services/products/products.service';
 import { NgForOf } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 @Component({
   selector: 'main-content',
@@ -13,10 +14,10 @@ import { CommonModule } from '@angular/common';
   imports: [
     MainContentItemComponent,
     MainContentFilterComponent,
-    MainContentPaginationComponent,
     MainContentMoreComponent,
     NgForOf,
-    CommonModule
+    CommonModule,
+    NgxPaginationModule,
   ],
   templateUrl: './main-content.component.html',
   styleUrls: ['./main-content.component.scss'],
@@ -31,6 +32,7 @@ export class MainContentComponent {
   ];
 
   products: any = [];
+  p: number = 1
 
   getProducts() {
     this.productsService
