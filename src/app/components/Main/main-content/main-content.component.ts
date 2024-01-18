@@ -6,7 +6,7 @@ import { ProductsService } from '../../../services/products/products.service';
 import { NgForOf } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'main-content',
@@ -32,12 +32,20 @@ export class MainContentComponent {
   ];
 
   products: any = [];
-  p: number = 1
+  p: number = 1;
 
   getProducts() {
     this.productsService
       .getProducts()
-      .subscribe((products) => (this.products = products));
+      .subscribe((products: any) => (this.products = products.products));
+  }
+
+  filterProducts(title: string) {
+    this.productsService
+      .getProducts()
+      .pipe(filter((item: any) => item.category == title))
+      .subscribe((products) => (this.products = products.products));
+    console.log(this.products);
   }
 
   ngOnInit() {

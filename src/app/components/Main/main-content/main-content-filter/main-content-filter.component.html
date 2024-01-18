@@ -1,7 +1,7 @@
 <div>
     <h3 class="mainGoods__inner-title">Categories</h3>
     <ul class="mainGoods__inner-list">
-        <li *ngFor="let item of categories; index as i"
+        <li *ngFor="let item of categories; index as i" (click)="emitClick(item)"
             class="mainGoods__inner-list-item">
             {{ item }}
         </li>

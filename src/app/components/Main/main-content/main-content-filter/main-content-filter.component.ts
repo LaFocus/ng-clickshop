@@ -1,5 +1,5 @@
 import { NgForOf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'main-content-filter',
@@ -16,4 +16,9 @@ export class MainContentFilterComponent {
     'skincare',
     'groceries',
   ];
+
+  @Output() clickEvent = new EventEmitter<string> ()
+  emitClick(title: string) {
+    this.clickEvent.emit(title)
+  }
 }
