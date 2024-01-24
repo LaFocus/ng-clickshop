@@ -9,16 +9,36 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./main-content-filter.component.scss'],
 })
 export class MainContentFilterComponent {
-  categories: string[] = [
-    'smartphones',
-    'laptops',
-    'fragrances',
-    'skincare',
-    'groceries',
+  categories: any = [
+    {
+      title: 'smartphones',
+      active: false
+    },
+    {
+      title: 'laptops',
+      active: false
+    },
+    {
+      title: 'fragrances',
+      active: false
+    },
+    {
+      title: 'skincare',
+      active: false
+    },
+    {
+      title: 'groceries',
+      active: false
+    },
   ];
 
   @Output() clickEvent = new EventEmitter<string> ()
-  emitClick(title: string) {
-    this.clickEvent.emit(title)
+  emitClick(item: any) {
+    for (let i = 0; i < this.categories.length; i++) {
+      const element = this.categories[i];
+      element.active = false
+    }
+    item.active = !item.active
+    this.clickEvent.emit(item.title)
   }
 }

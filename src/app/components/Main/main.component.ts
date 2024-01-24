@@ -9,4 +9,5 @@ import { MainContentComponent } from './main-content/main-content.component';
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
 })
+
 export class MainComponent {}

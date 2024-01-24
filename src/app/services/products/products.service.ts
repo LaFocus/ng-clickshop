@@ -1,26 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, filter } from 'rxjs';
+import { map, filter, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  private url = 'https://dummyjson.com/products/?limit=100';
+  private url = 'https://dummyjson.com/products/';
 
   getProducts() {
-    console.log(this.http.get(this.url));
-    return this.http.get(this.url)
+    return this.http.get(this.url);
   }
 
   getProduct(id: number) {
-    return this.http.get(this.url+id)
+    return this.http.get(this.url + id);
   }
 
-  // filterProducts(category: string) {
-  //   return this.http.get(this.url).pipe(
-  //     filter((value: any) => value.category == category)
-  //   )
-  // }
+  filterProducts(categoryArg?: string) {
+    return this.http.get(this.url).pipe(
+      map((response: any) => response.products.filter((item: any) => item.category == categoryArg)),
+    );
+  }
   constructor(private http: HttpClient) {}
 }
