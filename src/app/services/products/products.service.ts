@@ -21,5 +21,6 @@ export class ProductsService {
       map((response: any) => response.products.filter((item: any) => item.category == categoryArg)),
     );
   }
+  
   constructor(private http: HttpClient) {}
 }

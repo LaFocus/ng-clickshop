@@ -6,7 +6,7 @@ import { ProductsService } from '../../../services/products/products.service';
 import { NgForOf } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { filter, map } from 'rxjs';
+import { SelectedItems } from '../../../services/products/selectedItems.service';
 
 @Component({
   selector: 'main-content',
@@ -50,5 +50,8 @@ export class MainContentComponent {
     this.getProducts();
   }
 
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private productsService: ProductsService,
+    private selectedService: SelectedItems
+    ) {}
 }

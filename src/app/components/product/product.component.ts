@@ -3,6 +3,7 @@ import { ProductsService } from '../../services/products/products.service';
 import { NgForOf, NgIf } from '@angular/common';
 import { MainContentItemComponent } from '../Main/main-content/main-content-item/main-content-item.component';
 import { RouterLink, ActivatedRoute } from '@angular/router';
+import { SelectedItems } from '../../services/products/selectedItems.service';
 
 @Component({
   selector: 'app-product',
@@ -16,11 +17,11 @@ export class ProductComponent {
   info: any;
   imageForView: number = 0
   quantityToOrder: number = 0
+  id: any = this.route.snapshot.paramMap.get('id')
 
   getInfo() {
-    const id: any = this.route.snapshot.paramMap.get('id')
-    this.productsService.getProduct(id).subscribe((item) => {
-      this.info = item;
+    this.productsService.getProduct(this.id).subscribe((observer) => {
+      this.info = observer;
     });
   }
 
@@ -32,12 +33,17 @@ export class ProductComponent {
     }
   }
 
+  pushToSelected() {
+    this.selectedService.addToSelected(this.info)
+  }
+
   ngOnInit() {
     this.getInfo();
   }
 
   constructor(
     private productsService: ProductsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private selectedService: SelectedItems,
   ) {}
 }
