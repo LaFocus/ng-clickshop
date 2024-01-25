@@ -32,13 +32,21 @@ export class MainContentFilterComponent {
     },
   ];
 
-  @Output() clickEvent = new EventEmitter<string> ()
+  @Output() clickEvent = new EventEmitter<string>()
+  @Output() clearFilter = new EventEmitter()
+
   emitClick(item: any) {
-    for (let i = 0; i < this.categories.length; i++) {
-      const element = this.categories[i];
-      element.active = false
+
+    if (item.active == true) {
+      item.active = false
+      this.clearFilter.emit()
+    }else {
+      for (let i = 0; i < this.categories.length; i++) {
+        const element = this.categories[i];
+        element.active = false
+      }
+      item.active = true
+      this.clickEvent.emit(item.title)
     }
-    item.active = !item.active
-    this.clickEvent.emit(item.title)
   }
 }

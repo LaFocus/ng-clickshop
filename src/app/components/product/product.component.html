@@ -1,6 +1,6 @@
-<div class="productCard">
+<div class="productCard" *ngIf="info">
   <div class="routes container">
-    <a to="/">
+    <a routerLink="/">
       <span>Home/</span>
     </a>
     Product Card
@@ -8,12 +8,12 @@
   <div class="productCard__inner container">
     <div class="productCard__inner__images">
       <div class="productCard__inner__images__thumbnails">
-        <div class="productCard__inner__images__thumbnails-item" *ngFor="let item of info.images" :key="i">
+        <div class="productCard__inner__images__thumbnails-item" [class.active]="i == imageForView" *ngFor="let item of info.images; index as i"  (click)="imageForView = i" >
           <img [src]="item" alt="" class="productCard__inner__images__thumbnails-item-img">
         </div>
       </div>
       <div class="productCard__inner__images-mainImage">
-        <img [src]="info.images[0]" alt="">
+        <img [src]="info.images[imageForView]" alt="">
       </div>
     </div>
     <div class="productCard__inner__info">
@@ -30,9 +30,9 @@
 
       <div class="productCard__inner__info__btns">
         <div class="productCard__inner__info__btns__amount">
-          <button class="productCard__inner__info__btns__amount-btn">-</button>
-          <span>{{ 0 }}</span>
-          <button class="productCard__inner__info__btns__amount-btn">+</button>
+          <button class="productCard__inner__info__btns__amount-btn" (click)="changeQuantityToOrder('-')">-</button>
+          <span>{{ quantityToOrder }}</span>
+          <button class="productCard__inner__info__btns__amount-btn" (click)="changeQuantityToOrder('+')">+</button>
         </div>
         <button class="productCard__inner__info__btns-order">Buy
           NOW</button>
@@ -46,11 +46,11 @@
     </div>
   </div>
 
-  <div class="productCard__recommendations container" v-if="getIndexStore">
+  <div class="productCard__recommendations container">
     <div class="productCard__recommendations-title">
       <h3>You may be interested in</h3>
     </div>
-    <div class="productCard__recommendations__goods" v-if="getIndexStore">
+    <div class="productCard__recommendations__goods">
       <swiper-container :slides-per-view="1">
         <swiper-slide class="productCard__recommendations__goods__slide">
           <!-- <main-content-item ></main-content-item> -->
