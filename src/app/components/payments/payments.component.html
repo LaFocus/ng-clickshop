@@ -1,1 +1,172 @@
-<p>payments works!</p>
+<div class="payment" ref="payment">
+  <div class="routes container">
+    <a routerLink="/">
+      <span>Home/</span>
+    </a>
+    Payment And Delivery
+  </div>
+  <div class="payment__inner container" v-if="getItemsFromShop.length">
+    <div class="payment__inner__forms">
+      <h3>Billing Address</h3>
+      <form action="">
+        <div class="payment__inner__forms-item">
+          <span>First Name <span>*</span></span>
+          <input type="text" v-bind="name">
+          <!-- <pre>{{ errors.name }}</pre> -->
+        </div>
+        <div class="payment__inner__forms-item">
+          <span>Last Name <span>*</span></span>
+          <input type="text" v-bind="lastname">
+          <!-- <pre>{{ errors.lastname }}</pre> -->
+
+        </div>
+        <div class="payment__inner__forms-item">
+          <span>Country / Region <span>*</span></span>
+          <input type="text" v-bind="country" placeholder="Select a country / region">
+          <!-- <pre>{{ errors.country }}</pre> -->
+        </div>
+        <div class="payment__inner__forms-item">
+          <span>Town / City <span>*</span></span>
+          <input type="text" v-bind="town">
+          <!-- <pre>{{ errors.town }}</pre> -->
+        </div>
+        <div class="payment__inner__forms-item payment__inner__forms-itemStreet">
+          <span>Street Address <span>*</span></span>
+          <div>
+            <input type="text" v-bind="adress" placeholder="House number and street name">
+            <input type="text" placeholder="Appartment, suite, unit, etc. (optional)">
+          </div>
+          <!-- <pre>{{ errors.adress }}</pre> -->
+        </div>
+        <div class="payment__inner__forms-item">
+          <span>Email address <span>*</span></span>
+          <input type="text" v-bind="email">
+          <!-- <pre>{{ errors.email }}</pre> -->
+        </div>
+        <div class="payment__inner__forms-item">
+          <span>Phone Number <span>*</span></span>
+          <div>
+            <select name="" id="">
+              <option value="+998">+998</option>
+              <option value="+1">+1</option>
+              <option value="+3">+3</option>
+            </select>
+            <input type="text" v-bind="phone">
+          </div>
+          <!-- <pre>{{ errors.phone ? 'Телефон должен содержать только цифры' : '' }}</pre> -->
+        </div>
+      </form>
+      <div class="payment__inner__forms-diff">
+        <input type="checkbox" name="" id="">
+        <span>Ship to a different address?</span>
+      </div>
+      <div class="payment__inner__forms-notes">
+        <span>Order notes (optional)</span>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+      </div>
+    </div>
+    <div class="payment__inner__order">
+      <h3 class="payment__inner__info-title">Your Order</h3>
+      <div class="payment__inner__info">
+        <div class="payment__inner__info__headers">
+          <h4>Products</h4>
+          <h4>Subtotal</h4>
+        </div>
+
+        <div class="payment__inner__info__order-cards">
+          <!-- <div class="payment__inner__info__order-cards-item" v-for="(item, i) in getItemsFromShop" :key="i">
+              <img :src="item.images[0]" alt="" class="payment__inner__info__order-cards-item-img">
+              <div class="payment__inner__info__order-cards-item-info">
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+              </div>
+              <div class="payment__inner__info__order-cards-item-btns">
+                (x{{ item.amount }})
+              </div>
+              <div class="payment__inner__info__order-cards-item-total">
+                ${{ item.price * item.amount }}
+              </div>
+              <button class="shoppingCart__inner__main__cards-item-trash" @click="shopCartStore.deleteItem(item)">
+                <img src="@/assets/images/trash.svg" alt="" srcset="">
+              </button>
+             </div> -->
+        </div>
+        <div class="payment__inner__info__order__money">
+          <div class="payment__inner__info__order__money-item">
+            <span class="payment__inner__info__order__money-item-name">Subtotal</span>
+            <span class="payment__inner__info__order__money-item-amount">${{ 0}}</span>
+          </div>
+          <div class="payment__inner__info__order__money-item">
+            <span class="payment__inner__info__order__money-item-name">Total Discount</span>
+            <span class="payment__inner__info__order__money-item-amount">(-) ${{ 0 }}</span>
+          </div>
+          <div class="payment__inner__info__order__money-item">
+            <span class="payment__inner__info__order__money-item-name">Shiping</span>
+            <span class="payment__inner__info__order__money-item-amount">${{ 0 }}</span>
+          </div>
+          <a class="payment__inner__info__order__money-charge">
+            View shipping charge
+          </a>
+          <div class="payment__inner__info__order__money-item">
+            <span class="payment__inner__info__order__money-item-name">Total</span>
+            <span class="payment__inner__info__order__money-item-amountTotal">${{ 0 }}</span>
+          </div>
+        </div>
+        <button class="payment__inner__info__order__money-btn">
+          Place Order
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="empty" v-else>
+    Ничего нет!
+  </div>
+</div>
+
+<!-- <div class="modal" v-show="flag">
+  <div class="modal__bg"></div>
+  <div class="modal__inner">
+    <div class="modal__header">
+      <img src="@/assets/images/thanks.svg" alt="" srcset="">
+      <img src="@/assets/images/close.svg" alt="" class="modal__header-close">
+    </div>
+    <div class="modal__main">
+      <h3>Order Details</h3>
+      <div class="modal__main__inner">
+        <div class="modal__main__inner-headers">
+          <h3>Products</h3>
+          <h3>Qty</h3>
+          <h3>Subtotal</h3>
+        </div>
+        <div class="modal__main__inner-items">
+          <div class="modal__main__inner-item" v-for="(item, i) in getItemsFromShop" :key="i">
+            <img :src="item.images[0]" alt="" class="modal__main__inner-item-img">
+            <div class="modal__main__inner-item-info">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </div>
+            <div class="modal__main__inner-item-btns">
+              (x{{ item.amount }})
+            </div>
+            <div class="modal__main__inner-item-total">
+              ${{ item.price * item.amount }}
+            </div>
+            <button class="shoppingCart__inner__main__cards-item-trash" @click="shopCartStore.deleteItem(item)">
+              <img src="@/assets/images/trash.svg" alt="" srcset="">
+            </button>
+          </div>
+        </div>
+        <div class="modal__inner-info">
+          <div class="modal__inner-info-item">
+            <span>Shiping</span>
+            <span>${{ 0 }}</span>
+          </div>
+          <div class="modal__inner-info-item">
+            <span>Total</span>
+            <span>${{ 0 }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
