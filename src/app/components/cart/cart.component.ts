@@ -20,7 +20,7 @@ export class CartComponent {
   cartArr: any[] = []
 
   getCart() {
-    of(this.cartService.cart).subscribe((observer: any) => this.cartArr = observer)
+    of(this.cartService.products).subscribe((observer: any) => this.cartArr = observer)
     console.log(this.cartArr);
   }
 

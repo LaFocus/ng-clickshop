@@ -39,7 +39,7 @@ export class ProductComponent {
   }
 
   addToCart() {
-    this.cartService.addQuantityOfItem(this.info, this.quantityToOrder)
+    this.cartService.changeQuantityOfItem(this.info, this.quantityToOrder)
   }
 
   ngOnInit() {
