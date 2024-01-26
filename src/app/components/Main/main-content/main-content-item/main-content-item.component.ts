@@ -22,7 +22,7 @@ export class MainContentItemComponent {
   }
 
   pushToCart() {
-    this.cartService.addTocart(this.item)
+    this.cartService.addOrDelete(this.item)
   }
 
   constructor(

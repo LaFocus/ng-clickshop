@@ -4,11 +4,12 @@ import { CartService } from '../../services/cart/cart.service';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { of } from 'rxjs';
 import { NgFor } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CartItemComponent, NgFor],
+  imports: [CartItemComponent, NgFor, RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -21,7 +22,6 @@ export class CartComponent {
   getCart() {
     of(this.cartService.cart).subscribe((observer: any) => this.cartArr = observer)
     console.log(this.cartArr);
-    
   }
 
   ngOnInit() {

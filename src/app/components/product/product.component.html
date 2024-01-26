@@ -34,8 +34,7 @@
           <span>{{ quantityToOrder }}</span>
           <button class="productCard__inner__info__btns__amount-btn" (click)="changeQuantityToOrder('+')">+</button>
         </div>
-        <button class="productCard__inner__info__btns-order">Buy
-          NOW</button>
+        <button class="productCard__inner__info__btns-order" (click)="addToCart()">Buy NOW</button>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" :fill="fillValue"
           class="productCard__inner__info__btns-like" (click)="pushToSelected()">
           <path

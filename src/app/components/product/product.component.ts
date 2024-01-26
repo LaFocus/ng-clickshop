@@ -4,6 +4,7 @@ import { NgForOf, NgIf } from '@angular/common';
 import { MainContentItemComponent } from '../Main/main-content/main-content-item/main-content-item.component';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { SelectedItems } from '../../services/products/selectedItems.service';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -16,7 +17,7 @@ import { SelectedItems } from '../../services/products/selectedItems.service';
 export class ProductComponent {
   info: any;
   imageForView: number = 0
-  quantityToOrder: number = 0
+  quantityToOrder: number = 1
   id: any = this.route.snapshot.paramMap.get('id')
 
   getInfo() {
@@ -37,6 +38,10 @@ export class ProductComponent {
     this.selectedService.addToSelected(this.info)
   }
 
+  addToCart() {
+    this.cartService.addQuantityOfItem(this.info, this.quantityToOrder)
+  }
+
   ngOnInit() {
     this.getInfo();
   }
@@ -45,5 +50,6 @@ export class ProductComponent {
     private productsService: ProductsService,
     private route: ActivatedRoute,
     private selectedService: SelectedItems,
+    private cartService: CartService
   ) {}
 }

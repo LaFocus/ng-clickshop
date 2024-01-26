@@ -13,7 +13,7 @@ export class CartItemComponent {
   @Output() deleteItemEmit = new EventEmitter()
   
   deleteItem(item: any) {
-    this.cartService.addTocart(item)
+    this.cartService.addOrDelete(item)
     this.deleteItemEmit.emit()
   }
   constructor(private cartService: CartService) {}
