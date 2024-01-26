@@ -74,61 +74,61 @@
         </div>
 
         <div class="payment__inner__info__order-cards">
-          <!-- <div class="payment__inner__info__order-cards-item" v-for="(item, i) in getItemsFromShop" :key="i">
-              <img :src="item.images[0]" alt="" class="payment__inner__info__order-cards-item-img">
-              <div class="payment__inner__info__order-cards-item-info">
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.description }}</p>
-              </div>
-              <div class="payment__inner__info__order-cards-item-btns">
-                (x{{ item.amount }})
-              </div>
-              <div class="payment__inner__info__order-cards-item-total">
-                ${{ item.price * item.amount }}
-              </div>
-              <button class="shoppingCart__inner__main__cards-item-trash" @click="shopCartStore.deleteItem(item)">
-                <img src="@/assets/images/trash.svg" alt="" srcset="">
-              </button>
-             </div> -->
+          <div class="payment__inner__info__order-cards-item" *ngFor="let item of cart.products">
+            <img [src]="item.images[0]" alt="" class="payment__inner__info__order-cards-item-img">
+            <div class="payment__inner__info__order-cards-item-info">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </div>
+            <div class="payment__inner__info__order-cards-item-btns">
+              (x{{ item.quantity }})
+            </div>
+            <div class="payment__inner__info__order-cards-item-total">
+              ${{ item.price * item.quantity }}
+            </div>
+            <button class="shoppingCart__inner__main__cards-item-trash">
+              <img src="@/assets/images/trash.svg" alt="" srcset="">
+            </button>
+          </div>
         </div>
         <div class="payment__inner__info__order__money">
           <div class="payment__inner__info__order__money-item">
             <span class="payment__inner__info__order__money-item-name">Subtotal</span>
-            <span class="payment__inner__info__order__money-item-amount">${{ 0}}</span>
+            <span class="payment__inner__info__order__money-item-amount">${{ cart.subTotalPrice }}</span>
           </div>
           <div class="payment__inner__info__order__money-item">
             <span class="payment__inner__info__order__money-item-name">Total Discount</span>
-            <span class="payment__inner__info__order__money-item-amount">(-) ${{ 0 }}</span>
+            <span class="payment__inner__info__order__money-item-amount">(-) ${{ cart.subTotalPrice - cart.totalPrice }}</span>
           </div>
           <div class="payment__inner__info__order__money-item">
             <span class="payment__inner__info__order__money-item-name">Shiping</span>
-            <span class="payment__inner__info__order__money-item-amount">${{ 0 }}</span>
+            <span class="payment__inner__info__order__money-item-amount">${{ 16 }}</span>
           </div>
           <a class="payment__inner__info__order__money-charge">
             View shipping charge
           </a>
           <div class="payment__inner__info__order__money-item">
             <span class="payment__inner__info__order__money-item-name">Total</span>
-            <span class="payment__inner__info__order__money-item-amountTotal">${{ 0 }}</span>
+            <span class="payment__inner__info__order__money-item-amountTotal">${{ cart.totalPrice }}</span>
           </div>
         </div>
-        <button class="payment__inner__info__order__money-btn">
+        <button class="payment__inner__info__order__money-btn" (click)="flag = true">
           Place Order
         </button>
       </div>
     </div>
   </div>
-  <div class="empty" v-else>
+  <div class="empty">
     Ничего нет!
   </div>
 </div>
 
-<!-- <div class="modal" v-show="flag">
+<div class="modal" *ngIf="flag">
   <div class="modal__bg"></div>
   <div class="modal__inner">
     <div class="modal__header">
-      <img src="@/assets/images/thanks.svg" alt="" srcset="">
-      <img src="@/assets/images/close.svg" alt="" class="modal__header-close">
+      <img src="../../../assets/images/thanks.svg" alt="" srcset="">
+      <img src="../../../assets/images/close.svg" alt="" class="modal__header-close" (click)="flag = false">
     </div>
     <div class="modal__main">
       <h3>Order Details</h3>
@@ -139,19 +139,19 @@
           <h3>Subtotal</h3>
         </div>
         <div class="modal__main__inner-items">
-          <div class="modal__main__inner-item" v-for="(item, i) in getItemsFromShop" :key="i">
-            <img :src="item.images[0]" alt="" class="modal__main__inner-item-img">
+          <div class="modal__main__inner-item" *ngFor="let item of cart.products">
+            <img [src]="item.images[0]" alt="" class="modal__main__inner-item-img">
             <div class="modal__main__inner-item-info">
               <h3>{{ item.title }}</h3>
               <p>{{ item.description }}</p>
             </div>
             <div class="modal__main__inner-item-btns">
-              (x{{ item.amount }})
+              (x{{ item.quantity }})
             </div>
             <div class="modal__main__inner-item-total">
-              ${{ item.price * item.amount }}
+              ${{ item.price * item.quantity }}
             </div>
-            <button class="shoppingCart__inner__main__cards-item-trash" @click="shopCartStore.deleteItem(item)">
+            <button class="shoppingCart__inner__main__cards-item-trash">
               <img src="@/assets/images/trash.svg" alt="" srcset="">
             </button>
           </div>
@@ -159,14 +159,14 @@
         <div class="modal__inner-info">
           <div class="modal__inner-info-item">
             <span>Shiping</span>
-            <span>${{ 0 }}</span>
+            <span>${{ 16 }}</span>
           </div>
           <div class="modal__inner-info-item">
             <span>Total</span>
-            <span>${{ 0 }}</span>
+            <span>${{ cart.totalPrice }}</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div> -->
+</div>
