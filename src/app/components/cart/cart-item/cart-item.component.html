@@ -1,21 +1,21 @@
 <div class="shoppingCart__inner__main__cards-item">
-    <img :src="item.images[0]" alt="" class="shoppingCart__inner__main__cards-item-img">
+    <img [src]="item.images[0]" alt="" class="shoppingCart__inner__main__cards-item-img">
     <div class="shoppingCart__inner__main__cards-item-info">
-        <h3>{{ 'Iphone 9' }}</h3>
-        <p>{{ 'lorem' }}</p>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
     </div>
     <div class="shoppingCart__inner__main__cards-item-price">
-        ${{ 0 }}
+        ${{ item.price }}
     </div>
     <div class="shoppingCart__inner__main__cards-item-btns">
         <button class="shoppingCart__inner__main__cards-item-btns-btn">-</button>
-        <span>{{ 0 }}</span>
+        <span>{{ 1 }}</span>
         <button class="shoppingCart__inner__main__cards-item-btns-btn">+</button>
     </div>
     <div class="shoppingCart__inner__main__cards-item-total">
-        ${{ 0 }}
+        ${{ item.price }}
     </div>
     <button class="shoppingCart__inner__main__cards-item-trash" >
-        <img src="@/assets/images/trash.svg" alt="" srcset="">
+        <img (click)="deleteItem(item)" src="../../../../assets/images/trash.svg" alt="" srcset="" >
     </button>
 </div>
