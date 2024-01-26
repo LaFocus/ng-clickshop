@@ -16,5 +16,11 @@ export class CartItemComponent {
     this.cartService.addOrDelete(item)
     this.deleteItemEmit.emit()
   }
+
+
+  changeQuantity(item: any, way: "+" | "-") {
+    way == "+" ? this.cartService.changeQuantityOfItem(item, 1) : this.cartService.changeQuantityOfItem(item, -1)
+    this.deleteItemEmit.emit()
+  }
   constructor(private cartService: CartService) {}
 }

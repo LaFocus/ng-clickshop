@@ -8,12 +8,12 @@
         ${{ item.price }}
     </div>
     <div class="shoppingCart__inner__main__cards-item-btns">
-        <button class="shoppingCart__inner__main__cards-item-btns-btn">-</button>
-        <span>{{ 1 }}</span>
-        <button class="shoppingCart__inner__main__cards-item-btns-btn">+</button>
+        <button class="shoppingCart__inner__main__cards-item-btns-btn" (click)="changeQuantity(item, '-')" >-</button>
+        <span>{{ item.quantity }}</span>
+        <button class="shoppingCart__inner__main__cards-item-btns-btn" (click)="changeQuantity(item, '+')" >+</button>
     </div>
     <div class="shoppingCart__inner__main__cards-item-total">
-        ${{ item.price }}
+        ${{ item.price * item.quantity }}
     </div>
     <button class="shoppingCart__inner__main__cards-item-trash" >
         <img (click)="deleteItem(item)" src="../../../../assets/images/trash.svg" alt="" srcset="" >

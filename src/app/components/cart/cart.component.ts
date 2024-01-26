@@ -17,11 +17,11 @@ import { RouterLink } from '@angular/router';
 
 export class CartComponent {
 
-  cartArr: any[] = []
+  cart: any = {}
 
   getCart() {
-    of(this.cartService.products).subscribe((observer: any) => this.cartArr = observer)
-    console.log(this.cartArr);
+    this.cartService.getcartItems()
+    of(this.cartService.cart).subscribe((observer: any) => this.cart = observer)
   }
 
   ngOnInit() {

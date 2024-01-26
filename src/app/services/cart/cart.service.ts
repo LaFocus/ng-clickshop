@@ -9,10 +9,21 @@ export class CartService {
   totalAmount: number = 0;
   subTotalPrice: number = 0;
   totalPrice: number = 0;
+  cart: any
 
   getcartItems() {
     const cart = JSON.parse(localStorage.getItem('cart') || '{}');
     this.products = cart.products || [];
+
+    this.updateCartsInfo()
+
+    this.cart = {
+      products: this.products,
+      amountOfNames: this.amountOfNames,
+      totalAmount: this.totalAmount,
+      subTotalPrice: this.subTotalPrice,
+      totalPrice: this.totalPrice,
+    }
   }
 
   pushCartsItems() {
@@ -30,14 +41,17 @@ export class CartService {
 
   changeQuantityOfItem(item: any, quantity: number) {
     this.getcartItems();
-    this.updateCartsInfo();
     for (let i = 0; i <= this.products.length; i++) {
       const element = this.products[i];
+      if (i == this.products.length) {
+        this.addOrDelete(item)
+      }
       if (element.id !== item.id) {
         continue;
       } else {
         element.quantity += quantity;
         console.log(item);
+        this.updateCartsInfo();
         this.pushCartsItems();
         break;
       }
@@ -71,7 +85,6 @@ export class CartService {
   }
 
   updateCartsInfo() {
-    this.getcartItems()
     this.amountOfNames = 0
     this.totalAmount = 0
     this.subTotalPrice = 0
@@ -80,9 +93,9 @@ export class CartService {
       const element = this.products[i];
       this.amountOfNames = this.products.length;
       this.totalAmount += element.quantity;
-      this.subTotalPrice += element.price;
+      this.subTotalPrice += element.price * element.quantity;
       this.totalPrice +=
-        element.price - element.price * (element.discountPersentage / 100);
+        Math.floor((element.price - (element.price * (element.discountPercentage / 100))) * element.quantity);
     }
   }
 }
