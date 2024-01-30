@@ -20,24 +20,24 @@
         </a>
       </li>
     </ul>
-    <div class="burgerMenu">
-      <div class="burgerMenu__inner">
-        <ul class="burgerMenu__inner-list">
-          <li class="burgerMenu__inner-list-close">
+    <div class="burgerMenu" [ngClass]="{'active': isBurgerActive}">
+      <div class="burgerMenu__inner" (click)="isBurgerActive = false">
+        <ul class="burgerMenu__inner-list" (click)="$event.stopPropagation()">
+          <li class="burgerMenu__inner-list-close" (click)="isBurgerActive = false">
             <img src="../../../assets/images/close.svg" alt="">
           </li>
-          <li>
+          <li (click)="isBurgerActive = false">
             <a routerLink="/" class="burgerMenu__inner-list-item">
               Home
             </a>
           </li>
-          <li>
-            <a routerLink="/like" class="burgerMenu__inner-list-item">
+          <li (click)="isBurgerActive = false">
+            <a routerLink="/selected" class="burgerMenu__inner-list-item">
               Selected Products
             </a>
           </li>
-          <li>
-            <a routerLink="/payment" class="burgerMenu__inner-list-item">
+          <li (click)="isBurgerActive = false">
+            <a routerLink="/payments" class="burgerMenu__inner-list-item">
               Payment and delivery
             </a>
           </li>
@@ -49,8 +49,8 @@
         <div class="header__inner__right-shop-counter">{{ counter }}</div>
         <img src="../../../assets/images/cart.svg" alt="" class="header__inner__right-cart">
       </a>
-      <div class="burger">
-        <!-- <img NgOptimizedImage ngSrc="../../../assets/images/burger.png" width="60" height="60" alt=""> -->
+      <div class="burger" (click)="isBurgerActive = true">
+        <img NgOptimizedImage ngSrc="../../../assets/images/burger.png" width="60" height="60" alt="">
       </div>
     </div>
   </div>
