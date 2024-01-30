@@ -23,6 +23,8 @@ export class PaymentsComponent {
   ngOnInit() {
     this.cartService.getcartItems()
     this.getCart()
+    console.log(this.cart.products.length == 0);
+    
   }
 
   constructor(

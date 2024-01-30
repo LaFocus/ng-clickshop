@@ -1,46 +1,46 @@
-<div class="payment" ref="payment">
+<div class="payment">
   <div class="routes container">
     <a routerLink="/">
       <span>Home/</span>
     </a>
     Payment And Delivery
   </div>
-  <div class="payment__inner container" v-if="getItemsFromShop.length">
+  <div class="payment__inner container" *ngIf="cart.products.length != 0; else other_content">
     <div class="payment__inner__forms">
       <h3>Billing Address</h3>
       <form action="">
         <div class="payment__inner__forms-item">
           <span>First Name <span>*</span></span>
-          <input type="text" v-bind="name">
+          <input type="text">
           <!-- <pre>{{ errors.name }}</pre> -->
         </div>
         <div class="payment__inner__forms-item">
           <span>Last Name <span>*</span></span>
-          <input type="text" v-bind="lastname">
+          <input type="text">
           <!-- <pre>{{ errors.lastname }}</pre> -->
 
         </div>
         <div class="payment__inner__forms-item">
           <span>Country / Region <span>*</span></span>
-          <input type="text" v-bind="country" placeholder="Select a country / region">
+          <input type="text" placeholder="Select a country / region">
           <!-- <pre>{{ errors.country }}</pre> -->
         </div>
         <div class="payment__inner__forms-item">
           <span>Town / City <span>*</span></span>
-          <input type="text" v-bind="town">
+          <input type="text">
           <!-- <pre>{{ errors.town }}</pre> -->
         </div>
         <div class="payment__inner__forms-item payment__inner__forms-itemStreet">
           <span>Street Address <span>*</span></span>
           <div>
-            <input type="text" v-bind="adress" placeholder="House number and street name">
+            <input type="text" placeholder="House number and street name">
             <input type="text" placeholder="Appartment, suite, unit, etc. (optional)">
           </div>
           <!-- <pre>{{ errors.adress }}</pre> -->
         </div>
         <div class="payment__inner__forms-item">
           <span>Email address <span>*</span></span>
-          <input type="text" v-bind="email">
+          <input type="text">
           <!-- <pre>{{ errors.email }}</pre> -->
         </div>
         <div class="payment__inner__forms-item">
@@ -116,9 +116,12 @@
       </div>
     </div>
   </div>
-  <div class="empty">
-    Ничего нет!
-  </div>
+  <ng-template #other_content>
+    <div class="empty">
+      Ничего нет!
+    </div>
+  </ng-template>
+
 </div>
 
 <payments-modal *ngIf="flag" (closeModalEmitter)="flag = false"></payments-modal>
