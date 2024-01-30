@@ -50,13 +50,9 @@
       <h3>You may be interested in</h3>
     </div>
     <div class="productCard__recommendations__goods">
-      <swiper-container :slides-per-view="1">
-        <swiper-slide class="productCard__recommendations__goods__slide">
-          <!-- <main-content-item ></main-content-item> -->
-          <!-- <MainGoodsItem v-for="(item, i) in getIndexStore.slice(23, 27)" :key="i" :item="item" /> -->
-        </swiper-slide>
-        <swiper-slide class="productCard__recommendations__goods__slide">
-          <!-- <MainGoodsItem v-for="(item, i) in getIndexStore.slice(19, 23)" :key="i" :item="item" /> -->
+      <swiper-container :slides-per-view="4" :space-between="50">
+        <swiper-slide class="productCard__recommendations__goods__slide" *ngFor="let item of products | slice:0:10">
+          <main-content-item [item]="item" [selected]="selected" />
         </swiper-slide>
       </swiper-container>
     </div>
