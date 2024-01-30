@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SelectedItems } from '../../services/products/selectedItems.service';
@@ -7,7 +7,7 @@ import { of } from 'rxjs';
 @Component({
   selector: 'app-selected',
   standalone: true,
-  imports: [RouterLink, NgFor],
+  imports: [RouterLink, NgFor, NgIf],
   templateUrl: './selected.component.html',
   styleUrl: './selected.component.scss'
 })
