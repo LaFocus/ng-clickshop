@@ -16,6 +16,75 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 50px;
+
+      &-component ::ng-deep .ngx-pagination {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        & .current {
+          background: #030A8C;
+          color: white;
+          width: 35px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        & li:not(.current):not(.pagination-previous):not(.pagination-next):not(.small-screen),
+        & .pagination-previous,
+        & .pagination-next {
+          width: 35px;
+          height: 35px;
+          background: transparent;
+          border: 1px solid #f0f0f0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #121211;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 16px;
+          transition: 200ms;
+
+          &:hover,
+          &:hover a {
+            background: #030A8C;
+            color: white;
+          }
+
+        }
+
+       
+        & .pagination-next {
+          & a {
+            padding: 0;
+
+            &::after {
+              margin-left: 0;
+            }
+          }
+
+          &::after {
+            margin-left: 0;
+          }
+        }
+        & .pagination-previous {
+          & a {
+            padding: 0;
+
+            &::before {
+              margin-right: 0;
+            }
+          }
+
+          &::before {
+            margin-right: 0;
+          }
+        }
+      }
     }
   }
 }
