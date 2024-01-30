@@ -216,7 +216,7 @@
 }
 
 .empty {
-  height: 50vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -244,5 +244,41 @@
     letter-spacing: 1.25px;
     text-transform: uppercase;
     text-decoration: double;
+  }
+}
+
+.productCard {
+
+  &__recommendations {
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      margin: 100px 0 160px 0;
+      color: #121211;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 1.25px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    // &__goods {
+    //   display: flex;
+    //   margin-bottom: 150px;
+    //   flex-wrap: wrap;
+    //   justify-content: center;
+
+    //   &__slide {
+    //     // width: max-content !important;
+    //     display: flex !important;
+    //     gap: 25px !important;
+    //     flex-wrap: wrap !important;
+    //     justify-content: center !important;
+
+    //     @media screen and (max-width: 1666px) {}
+    //   }
+    // }
   }
 }
