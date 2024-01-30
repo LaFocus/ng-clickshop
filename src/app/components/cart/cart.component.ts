@@ -3,12 +3,11 @@ import { register } from 'swiper/element/bundle';
 import { CartService } from '../../services/cart/cart.service';
 import { CartItemComponent } from './cart-item/cart-item.component';
 import { of } from 'rxjs';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { MainContentItemComponent } from '../Main/main-content/main-content-item/main-content-item.component';
 import { ProductsService } from '../../services/products/products.service';
 import { SelectedItems } from '../../services/products/selectedItems.service';
-
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -18,6 +17,7 @@ import { SelectedItems } from '../../services/products/selectedItems.service';
     NgIf,
     RouterLink,
     MainContentItemComponent,
+    CommonModule 
   ],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss',
@@ -43,9 +43,7 @@ export class CartComponent {
 
   getSelected() {
     this.selectedService.getSelectedItems();
-    of(this.selectedService.selected).pipe(
-      // slice(0, 10)
-    ).subscribe(
+    of(this.selectedService.selected).subscribe(
       (observer) => (this.selected = observer)
     );
   }
@@ -64,7 +62,5 @@ export class CartComponent {
     private selectedService: SelectedItems
   ) {}
 }
-function slice(): import("rxjs").OperatorFunction<any, unknown> {
-  throw new Error('Function not implemented.');
-}
+
 

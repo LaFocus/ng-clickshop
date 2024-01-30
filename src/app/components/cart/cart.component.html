@@ -61,7 +61,7 @@
     </div>
     <div class="productCard__recommendations__goods">
       <swiper-container :slides-per-view="4" :space-between="50">
-        <swiper-slide class="productCard__recommendations__goods__slide" *ngFor="let item of products">
+        <swiper-slide class="productCard__recommendations__goods__slide" *ngFor="let item of products | slice:0:10">
           <!-- <main-content-item v-for="(item, i) in getIndexStore.slice(4, 8)" :key="i" :item="item" /> -->
           <main-content-item [item]="item" [selected]="selected" />
         </swiper-slide>
