@@ -19,10 +19,6 @@ export const routes: Routes = [
     loadComponent: () => import('./components/cart/cart.component').then(m => m.CartComponent)
   },
   {
-    path: 'contacts',
-    loadComponent: () => import('./components/contacts/contacts.component').then(m => m.ContactsComponent)
-  },
-  {
     path: 'products/:id',
     loadComponent: () => import('./components/product/product.component').then(m => m.ProductComponent)
   },
