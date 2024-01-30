@@ -1,0 +1,44 @@
+<div class="modal" (click)="closeModal()">
+  <div class="modal__bg"></div>
+  <div class="modal__inner" (click)="$event.stopPropagation()">
+    <div class="modal__header">
+      <img src="../../../assets/images/thanks.svg" alt="" srcset="">
+      <img src="../../../assets/images/close.svg" alt="" class="modal__header-close" (click)="closeModal()">
+    </div>
+    <div class="modal__main">
+      <h3>Order Details</h3>
+      <div class="modal__main__inner">
+        <div class="modal__main__inner-headers">
+          <h3>Products</h3>
+          <h3>Qty</h3>
+          <h3>Subtotal</h3>
+        </div>
+        <div class="modal__main__inner-items">
+          <div class="modal__main__inner-item" *ngFor="let item of cart.products">
+            <img [src]="item.images[0]" alt="" class="modal__main__inner-item-img">
+            <div class="modal__main__inner-item-info">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </div>
+            <div class="modal__main__inner-item-btns">
+              (x{{ item.quantity }})
+            </div>
+            <div class="modal__main__inner-item-total">
+              ${{ item.price * item.quantity }}
+            </div>
+          </div>
+        </div>
+        <div class="modal__inner-info">
+          <div class="modal__inner-info-item">
+            <span>Shiping</span>
+            <span>${{ 16 }}</span>
+          </div>
+          <div class="modal__inner-info-item">
+            <span>Total</span>
+            <span>${{ cart.totalPrice }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

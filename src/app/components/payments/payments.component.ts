@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CartService } from '../../services/cart/cart.service';
 import { of } from 'rxjs';
 import { NgFor, NgIf } from '@angular/common';
+import { PaymentsModal } from './payments-modal/payments-modal.component';
 
 @Component({
   selector: 'app-payments',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, PaymentsModal],
   templateUrl: './payments.component.html',
   styleUrl: './payments.component.scss'
 })
