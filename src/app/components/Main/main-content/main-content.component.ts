@@ -7,6 +7,7 @@ import { NgForOf } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SelectedItems } from '../../../services/products/selectedItems.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'main-content',
@@ -32,6 +33,7 @@ export class MainContentComponent {
   ];
 
   products: any = [];
+  selected: any
   p: number = 1;
 
   getProducts() {
@@ -46,8 +48,16 @@ export class MainContentComponent {
       .subscribe((products) => this.products = products);
   }
 
+  getSelected() {
+    this.selectedService.getSelectedItems()
+    of(this.selectedService.selected).subscribe((observer) => this.selected = observer)
+    console.log(this.selected);
+    
+  }
+
   ngOnInit() {
     this.getProducts();
+    this.getSelected()
   }
 
   constructor(
