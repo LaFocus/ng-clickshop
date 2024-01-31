@@ -2,6 +2,7 @@
   &__inner {
     display: flex;
     gap: 170px;
+    margin-top: 50px;
 
     @media screen and (max-width: 1200px) {
       gap: 30px;

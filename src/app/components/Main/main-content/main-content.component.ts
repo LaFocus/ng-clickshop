@@ -51,7 +51,6 @@ export class MainContentComponent {
   getSelected() {
     this.selectedService.getSelectedItems()
     of(this.selectedService.selected).subscribe((observer) => this.selected = observer)
-    console.log(this.selected);
     
   }
 

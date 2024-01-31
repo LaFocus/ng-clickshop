@@ -3,11 +3,12 @@ import { CartService } from '../../services/cart/cart.service';
 import { of } from 'rxjs';
 import { NgFor, NgIf } from '@angular/common';
 import { PaymentsModal } from './payments-modal/payments-modal.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-payments',
   standalone: true,
-  imports: [NgFor, NgIf, PaymentsModal],
+  imports: [NgFor, NgIf, PaymentsModal, RouterLink],
   templateUrl: './payments.component.html',
   styleUrl: './payments.component.scss'
 })
@@ -23,8 +24,6 @@ export class PaymentsComponent {
   ngOnInit() {
     this.cartService.getcartItems()
     this.getCart()
-    console.log(this.cart.products.length == 0);
-    
   }
 
   constructor(

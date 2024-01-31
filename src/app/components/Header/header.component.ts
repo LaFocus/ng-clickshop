@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgClass, NgOptimizedImage } from '@angular/common';
 import { CartService } from '../../services/cart/cart.service';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -12,15 +12,20 @@ import { of } from 'rxjs';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  counter: number = 0;
-  isBurgerActive: boolean = false
-
+  counter: any = 0;
+  isBurgerActive: boolean = false;
   serCounter() {
-    this.cartService.getcartItems()
-    of(this.cartService.amountOfNames).subscribe((observer: any) => this.counter = observer);
+    this.cartService.getcartItems();
+    of(this.cartService.amountOfNames).subscribe(
+      (observer: any) => (this.counter = observer)
+    );
   }
 
   ngOnInit() {
+    this.cartService.watchStorage().subscribe(observer => {
+      this.serCounter();
+      
+    })
     this.serCounter();
   }
 
