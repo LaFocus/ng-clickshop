@@ -18,11 +18,12 @@ import { register } from 'swiper/element/bundle';
 })
 export class ProductComponent {
   info: any;
+  products: any;
+  selected: any;
   imageForView: number = 0;
   quantityToOrder: number = 1;
   id: any = this.route.snapshot.paramMap.get('id');
-  products: any;
-  selected: any;
+  selectedIconFill: any = 'none'
 
   getInfo() {
     this.productsService.getProduct(this.id).subscribe((observer) => {
@@ -40,6 +41,8 @@ export class ProductComponent {
 
   pushToSelected() {
     this.selectedService.addToSelected(this.info);
+    this.selectedIconFill =
+      this.selectedIconFill == '#030A8C' ? 'none' : '#030A8C';
   }
 
   addToCart() {
@@ -57,13 +60,24 @@ export class ProductComponent {
     of(this.selectedService.selected).subscribe(
       (observer) => (this.selected = observer)
     );
+    this.checkForSelectionAndCart()
+  }
+
+  checkForSelectionAndCart() {
+    for (let i = 0; i < this.selected.length; i++) {
+      const element = this.selected[i];
+      if (element.id == this.id) {
+        this.selectedIconFill = '#030A8C';
+        break
+      }
+    }
   }
 
   ngOnInit() {
-    register()
+    register();
     this.getInfo();
-    this.getProducts()
-    this.getSelected()
+    this.getProducts();
+    this.getSelected();
   }
 
   constructor(
