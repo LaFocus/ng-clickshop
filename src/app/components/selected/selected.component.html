@@ -8,7 +8,7 @@
   <div class="selectedItems__item" *ngFor="let item of selectedProducts">
     <div class="selectedItems__item__inner">
       <div class="selectedItems__item__inner-img">
-        <a routerLink="">
+        <a [routerLink]="'/products/' + item.id">
           <img [src]="item.images[0]" alt="" class="selectedItems__item__inner-img-phone">
         </a>
         <button>
