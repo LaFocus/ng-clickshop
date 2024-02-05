@@ -11,37 +11,60 @@
       <form action="">
         <div class="payment__inner__forms-item">
           <span>First Name <span>*</span></span>
-          <input type="text">
-          <!-- <pre>{{ errors.name }}</pre> -->
+          <input type="text" [formControl]="firstName">
+          <div *ngIf="firstName.touched && firstName.invalid">
+            <span *ngIf="firstName.errors.required">First Name is required.</span>
+            <span *ngIf="firstName.errors.minlength">First Name must be at least 3 characters.</span>
+            <span *ngIf="firstName.errors.maxlength">First Name cannot exceed 30 characters.</span>
+          </div>
         </div>
         <div class="payment__inner__forms-item">
           <span>Last Name <span>*</span></span>
-          <input type="text">
-          <!-- <pre>{{ errors.lastname }}</pre> -->
-
+          <input type="text" [formControl]="lastName">
+          <div *ngIf="lastName.touched && lastName.invalid">
+            <span *ngIf="lastName.errors.required">Last Name is required.</span>
+            <span *ngIf="lastName.errors.minlength">Last Name must be at least 3 characters.</span>
+            <span *ngIf="lastName.errors.maxlength">Last Name cannot exceed 30 characters.</span>
+          </div>
         </div>
         <div class="payment__inner__forms-item">
           <span>Country / Region <span>*</span></span>
-          <input type="text" placeholder="Select a country / region">
-          <!-- <pre>{{ errors.country }}</pre> -->
+          <input type="text" placeholder="Select a country / region" [formControl]="country">
+          <div *ngIf="country.touched && country.invalid">
+            <span *ngIf="country.errors.required">
+              Country / Region is required.
+            </span>
+          </div>
         </div>
         <div class="payment__inner__forms-item">
           <span>Town / City <span>*</span></span>
-          <input type="text">
-          <!-- <pre>{{ errors.town }}</pre> -->
+          <input type="text" [formControl]="city">
+          <div *ngIf="city.touched && city.invalid">
+            <span *ngIf="city.errors.required">
+              City is required.
+            </span>
+          </div>
         </div>
         <div class="payment__inner__forms-item payment__inner__forms-itemStreet">
           <span>Street Address <span>*</span></span>
           <div>
-            <input type="text" placeholder="House number and street name">
+            <input type="text" placeholder="House number and street name" [formControl]="street">
             <input type="text" placeholder="Appartment, suite, unit, etc. (optional)">
           </div>
-          <!-- <pre>{{ errors.adress }}</pre> -->
+          <div *ngIf="street.touched && street.invalid">
+            <span *ngIf="street.errors.required">
+              Street address is required.
+            </span>
+          </div>
         </div>
         <div class="payment__inner__forms-item">
           <span>Email address <span>*</span></span>
-          <input type="text">
-          <!-- <pre>{{ errors.email }}</pre> -->
+          <input type="text" [formControl]="emailAddress">
+          <div *ngIf="emailAddress.touched && emailAddress.invalid">
+            <span *ngIf="emailAddress.errors.email">
+              Email address is required.
+            </span>
+          </div>
         </div>
         <div class="payment__inner__forms-item">
           <span>Phone Number <span>*</span></span>
@@ -51,9 +74,13 @@
               <option value="+1">+1</option>
               <option value="+3">+3</option>
             </select>
-            <input type="text" v-bind="phone">
+            <input type="text" [formControl]="phoneNumber">
           </div>
-          <!-- <pre>{{ errors.phone ? 'Телефон должен содержать только цифры' : '' }}</pre> -->
+          <div *ngIf="phoneNumber.touched && phoneNumber.invalid">
+            <span *ngIf="phoneNumber.errors.pattern">
+              Phone number must include only numbers.
+            </span>
+          </div>
         </div>
       </form>
       <div class="payment__inner__forms-diff">
