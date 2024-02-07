@@ -5,7 +5,7 @@
       justify-content: space-between;
       margin-top: 84px;
   
-      @media screen and (max-width: 570px) {
+      @media screen and (max-width: 1160px) {
         flex-direction: column;
       }
   
@@ -16,7 +16,7 @@
         align-items: flex-start;
         position: relative;
   
-        @media screen and (max-width: 570px) {
+        @media screen and (max-width: 1160px) {
           align-items: center;
           margin-bottom: 50px;
         }
@@ -93,6 +93,7 @@
   
       &__slider {
         max-width: 890px !important;
+        width: 100% !important;
   
         &-item {
           display: flex !important;
@@ -102,8 +103,8 @@
             width: 50% !important;
   
             @media screen and (max-width: 1510px) {
-              width: 80% !important;
-              height: 80% !important;
+              width: 50% !important;
+              height: 50% !important;
             }
           }
         }

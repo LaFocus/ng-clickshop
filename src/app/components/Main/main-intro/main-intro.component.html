@@ -1,26 +1,25 @@
 <header class="intro" v-if="getIndexStore">
     <div class="container intro__inner">
         <div class="intro__inner__info">
-            <h2 class="intro__inner__info-logo">
-                iPhone 14 Pro Max
-            </h2>
+            <h2 class="intro__inner__info-logo">iPhone 14 Pro Max</h2>
             <a routerLink="/products/1">
-                <button class="intro__inner__info-btn">
-                    shop now
-                </button>
+                <button class="intro__inner__info-btn">shop now</button>
             </a>
-
         </div>
-        <swiper-container :slides-per-view="1" :space-between="50" :pagination="true" 
-            class="intro__inner__slider">
+        <swiper-container
+            :slides-per-view="1"
+            :space-between="0"
+            :pagination="true"
+            class="intro__inner__slider"
+        >
             <swiper-slide class="intro__inner__slider-item">
-                <img src="../../../../assets/images/intro1.png" alt="">
+                <img src="../../../../assets/images/intro1.png" alt="" />
             </swiper-slide>
             <swiper-slide class="intro__inner__slider-item">
-                <img src="../../../../assets/images/intro2.png" alt="">
+                <img src="../../../../assets/images/intro2.png" alt="" />
             </swiper-slide>
             <swiper-slide class="intro__inner__slider-item">
-                <img src="../../../../assets/images/intro3.png" alt="">
+                <img src="../../../../assets/images/intro3.png" alt="" />
             </swiper-slide>
         </swiper-container>
     </div>
