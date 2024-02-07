@@ -27,7 +27,7 @@
 
       & h3 {
         color: #121211;
-        font-family: "Questrial";
+        font-family:  "Questrial", sans-serif;
         font-size: 25px;
         font-style: normal;
         font-weight: 400;
@@ -42,7 +42,7 @@
 
         & span {
           color: #3d3d3d;
-          font-family: "Questrial";
+          font-family: "Questrial", sans-serif;
           font-size: 18px;
           font-style: normal;
           font-weight: 400;
@@ -65,7 +65,7 @@
 
         & input::placeholder {
           color: rgba(61, 61, 61, 0.2);
-          font-family: 'Kanit';
+          font-family: 'Kanit', sans-serif;
           font-size: 18px;
           font-style: normal;
           font-weight: 300;
@@ -190,7 +190,7 @@
 
         & span {
           color: #3d3d3d;
-          font-family: "Questrial";
+          font-family: "Questrial", sans-serif;
           font-size: 18px;
           font-style: normal;
           font-weight: 400;
@@ -205,7 +205,7 @@
 
         & span {
           color: #3d3d3d;
-          font-family: "Questrial";
+          font-family: "Questrial", sans-serif;
           font-size: 18px;
           font-style: normal;
           font-weight: 400;
@@ -239,7 +239,7 @@
 
         & h4 {
           color: #121211;
-          font-family: "Questrial";
+          font-family: "Questrial", sans-serif;
           font-size: 25px;
           font-style: normal;
           font-weight: 400;
@@ -262,7 +262,7 @@
 
       &-title {
         color: #121211;
-        font-family: "Questrial";
+        font-family: "Questrial", sans-serif;
         font-size: 25px;
         font-style: normal;
         font-weight: 400;
@@ -285,7 +285,7 @@
           &-charge {
             align-self: flex-end;
             color: #030a8c;
-            font-family: "Questrial";
+            font-family: "Questrial", sans-serif;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
@@ -299,7 +299,7 @@
 
             &-name {
               color: #3d3d3d;
-              font-family: "Questrial";
+              font-family: "Questrial", sans-serif;
               font-size: 20px;
               font-style: normal;
               font-weight: 400;
@@ -309,7 +309,7 @@
             &-amount {
               color: #3d3d3d;
               text-align: right;
-              font-family: "Questrial";
+              font-family: "Questrial", sans-serif;
               font-size: 20px;
               font-style: normal;
               font-weight: 400;
@@ -318,7 +318,7 @@
 
             &-amountTotal {
               color: #030a8c;
-              font-family: "Questrial";
+              font-family: "Questrial", sans-serif;
               font-size: 20px;
               font-style: normal;
               font-weight: 400;
@@ -338,7 +338,7 @@
 
           &-btn {
             color: #fff;
-            font-family: "Questrial";
+            font-family: "Questrial", sans-serif;
             font-size: 18px;
             font-style: normal;
             font-weight: 400;
@@ -413,7 +413,7 @@
 
               & h3 {
                 color: #121211;
-                font-family: "Questrial";
+                font-family: "Questrial", sans-serif;
                 font-size: 18px;
                 font-style: normal;
                 font-weight: 400;
@@ -429,7 +429,7 @@
 
               & p {
                 color: #a5a5a5;
-                font-family: "Questrial";
+                font-family: "Questrial", sans-serif;
                 font-size: 18px;
                 font-style: normal;
                 font-weight: 400;
@@ -464,7 +464,7 @@
 
             &-total {
               color: #030a8c;
-              font-family: "Questrial";
+              font-family: "Questrial", sans-serif;
               font-size: 25px;
               font-style: normal;
               font-weight: 400;
@@ -493,7 +493,7 @@
 
   &-title {
     color: #121211;
-    font-family: "Questrial";
+    font-family: "Questrial", sans-serif;
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
@@ -504,7 +504,7 @@
 
   &-link {
     color: #121211;
-    font-family: "Questrial";
+    font-family: "Questrial", sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
