@@ -1,0 +1,7 @@
+{
+  "name": "ng-clickshop-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

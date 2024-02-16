@@ -1,0 +1,17 @@
+<div class="mainGoods__inner container">
+  <main-content-filter (clickEvent)="filterProducts($event)" (clearFilter)="getProducts()"></main-content-filter>
+
+  <div class="mainGoods__inner-cards">
+    <main-content-item *ngFor="let item of products | paginate: { itemsPerPage: 10, currentPage: p }" [item]="item" [selected]="selected">
+    </main-content-item>
+  </div>
+  <div class="mainGoods__inner-pagination">
+    <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel="" class="mainGoods__inner-pagination-component"></pagination-controls>
+  </div>
+  <main-content-more></main-content-more>
+</div>
+<div class="mainGoods__inner">
+  <!-- <MainGoodsItem v-for="(item, index) in allProds" :key="index" :item="item" /> -->
+
+
+</div>

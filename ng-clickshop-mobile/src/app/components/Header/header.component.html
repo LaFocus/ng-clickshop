@@ -1,0 +1,57 @@
+<nav class="header">
+  <div class="header__inner container">
+    <a class="header__inner-logo" routerLink="/">
+      <img src="../../../assets/images/logo.svg" alt="">
+    </a>
+    <ul class="header__inner-list">
+      <li>
+        <a routerLinkActive="active" routerLink="/main" class="header__inner-list-item">
+          Home
+        </a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/selected" class="header__inner-list-item">
+          Selected Products
+        </a>
+      </li>
+      <li>
+        <a routerLinkActive="active" routerLink="/payments" class="header__inner-list-item">
+          Payment and delivery
+        </a>
+      </li>
+    </ul>
+    <div class="burgerMenu" [ngClass]="{'active': isBurgerActive}">
+      <div class="burgerMenu__inner" (click)="isBurgerActive = false">
+        <ul class="burgerMenu__inner-list" (click)="$event.stopPropagation()">
+          <li class="burgerMenu__inner-list-close" (click)="isBurgerActive = false">
+            <img src="../../../assets/images/close.svg" alt="">
+          </li>
+          <li (click)="isBurgerActive = false">
+            <a routerLink="/" class="burgerMenu__inner-list-item">
+              Home
+            </a>
+          </li>
+          <li (click)="isBurgerActive = false">
+            <a routerLink="/selected" class="burgerMenu__inner-list-item">
+              Selected Products
+            </a>
+          </li>
+          <li (click)="isBurgerActive = false">
+            <a routerLink="/payments" class="burgerMenu__inner-list-item">
+              Payment and delivery
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="header__inner__right">
+      <a routerLink="/cart" class="header__inner__right-shop">
+        <div class="header__inner__right-shop-counter">{{ counter }}</div>
+        <img src="../../../assets/images/cart.svg" alt="" class="header__inner__right-cart">
+      </a>
+      <div class="burger" (click)="isBurgerActive = true">
+        <img NgOptimizedImage ngSrc="../../../assets/images/burger.png" width="60" height="60" alt="">
+      </div>
+    </div>
+  </div>
+</nav>
